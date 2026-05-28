@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- towncrier release notes start -->
 
+## [1.1.1] - 2026-05-27
+
+### Fixed
+
+- Fixed an issue where redeclaring a function in a new node silently kept the
+  previous node's handler bound (#269).
+  (PR [#270](https://github.com/pipecat-ai/pipecat-flows/pull/270))
+
+- Fixed an unresolved `NodeConfig` forward reference in
+  `ConsolidatedFunctionResult` that caused `get_type_hints()` (and therefore
+  Pipecat's `BaseDirectFunctionWrapper`) to raise `NameError: name 'NodeConfig'
+  is not defined` on direct functions annotated with `->
+  ConsolidatedFunctionResult`, stalling flows at node-setup time (#271).
+  (PR [#272](https://github.com/pipecat-ai/pipecat-flows/pull/272))
+
 ## [1.1.0] - 2026-05-07
 
 ### Changed
